@@ -10,6 +10,7 @@ from backend.routers.assets import router as assets_router
 from backend.routers.portfolio import router as portfolio_router
 from backend.routers.simulation import router as simulation_router
 from backend.routers.ai import router as ai_router
+from backend.routers.portfolio_honest import router as honest_router
 
 # Setup logging
 logging.basicConfig(
@@ -52,6 +53,7 @@ app.include_router(assets_router, prefix="/api")
 app.include_router(portfolio_router, prefix="/api")
 app.include_router(simulation_router, prefix="/api")
 app.include_router(ai_router, prefix="/api")
+app.include_router(honest_router)
 
 @app.get("/")
 def health_check():

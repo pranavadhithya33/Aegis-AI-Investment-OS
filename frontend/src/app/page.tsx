@@ -11,7 +11,8 @@ import {
   ChevronRight,
   TrendingUp,
   Activity,
-  Cpu
+  Cpu,
+  Sprout
 } from "lucide-react";
 
 import DashboardTab from "@/components/DashboardTab";
@@ -49,6 +50,7 @@ export default function Home() {
     { id: "assets", label: "Asset Universe", icon: Coins },
     { id: "simulation", label: "Backtest & Sim", icon: BarChart3 },
     { id: "ai_terminal", label: "AI Advisor Terminal", icon: Terminal },
+    { id: "beginner", label: "Beginner Onboarding", icon: Sprout },
   ];
 
   return (
@@ -94,6 +96,10 @@ export default function Home() {
                 key={item.id}
                 className={`nav-item ${isActive ? "active" : ""}`}
                 onClick={() => {
+                  if (item.id === "beginner") {
+                    window.location.href = "/beginner";
+                    return;
+                  }
                   setActiveTab(item.id);
                   setMobileOpen(false);
                 }}
